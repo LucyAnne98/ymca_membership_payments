@@ -1,4 +1,4 @@
-# frontend
+# ymca_fe
 
 ## Project setup
 ```

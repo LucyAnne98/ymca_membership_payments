@@ -1,0 +1,109 @@
+@import url("palette.css");
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+    background: var(--color3);
+
+}
+
+#app {
+    padding-bottom: 6rem;
+}
+
+#body {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 3em;
+    text-align: center;
+}
+
+
+.header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 5em;
+}
+
+.top-header {
+    vertical-align: center;
+
+    font-size: 2rem;
+}
+
+.left {
+    margin-left: 5%;
+}
+
+.right {
+    margin-right: 2%;
+}
+
+.top-header .header-right {
+    text-align: center;
+    display: inline-block;
+}
+
+.top-header .header-right .languages {
+    display: flex;
+}
+
+.top-header .header-right .languages span {
+    flex: 1;
+    text-align: center;
+
+}
+
+.top-header a {
+    color: var(--color5);
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.top-header a:hover {
+    color: var(--color4);
+}
+
+.top-header img {
+    max-width: 3em;
+}
+
+.top-header .item {
+    display: inline;
+    list-style: none;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+
+.top-bar {
+    background-color: var(--color1);
+    color: var(--color5);
+    position: center;
+
+}
+
+
+.text-black {
+    color: var(--color4);
+}
+
+.text-blue {
+    color: var(--color2);
+}
+
+
+button.btn.rounded-pill.btn-ymca_fe {
+    margin-top: 1rem;
+    color: var(--color1);
+    background-color: var(--color5);
+    border-color: var(--color5);
+    text-transform: uppercase;
+}
+
