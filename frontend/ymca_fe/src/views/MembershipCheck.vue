@@ -47,7 +47,7 @@
 
     <b-button
         type="submit"
-        variant="ymca_fe"
+        variant="ymca-fe"
         class="rounded-pill"
     >
       {{ sendText }}
@@ -97,11 +97,7 @@ export default {
       return this.$store.state.checkYMCALabel;
     },
     submitCheck() {
-      axios.get(this.$store.state.apiUrl + `/check?name=` + this.checkName + `&email=` + this.checkEmail + `&ymca=` + this.checkYMCA, {
-        name: this.checkName,
-        email: this.checkEmail,
-        ymca: this.checkYMCA
-      })
+      axios.get(this.$store.state.apiUrl + `/check?name=` + this.checkName + `&email=` + this.checkEmail + `&ymca=` + this.checkYMCA)
         .then(response => {
           this.loadResults = true;
           this.results = response.data.results;

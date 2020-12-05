@@ -9,7 +9,11 @@ export default new Vuex.Store({
     //General
     apiUrl: "TODO", //TODO
     isAuthenticated: true,
-    user: null,
+    user: {
+      id: 0,
+      ymcaID: 0,
+
+    },
     //MembershipCheck
     membershipCheckHeadline: "Zkontrolujte si své členství",
     checkNameLabel: "Zadejte jméno",
@@ -19,8 +23,13 @@ export default new Vuex.Store({
     //Navigation
     membershipLabel: "Správa plateb",
     checkLabel: "Stav členství",
-    ymcaSettingLabel: "Správa YMCA"
-
+    ymcaSettingLabel: "Správa YMCA",
+    //MembershipSettings
+    addPayment: "Nová platba",
+    name: "Jméno",
+    membershipType: "Typ členství",
+    validity: "Platné do",
+    sendReminder: "Pošli upomínku"
    },
   mutations: {},
   actions: {},

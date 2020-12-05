@@ -19,58 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-Medium.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-Regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-SemiBold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/Comfortaa-VariableFont_wght.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/bootstrap-vue.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/palette.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/styles.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/img/icons/icon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/js/bootstrap-vue.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/js/polyfill.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/js/vue.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/App.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/components/Navigation.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/registerServiceWorker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/router/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/About.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Admin.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Home.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ymca_membership_payments.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ymca_membership_payments.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontenda/src/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,8 +111,16 @@
       <workItem from="1601666548852" duration="448000" />
       <workItem from="1602492692364" duration="370000" />
       <workItem from="1606834703064" duration="22232000" />
-      <workItem from="1607205902549" duration="2040000" />
+      <workItem from="1607205902549" duration="5252000" />
     </task>
+    <task id="LOCAL-00001" summary="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue">
+      <created>1607208500500</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607208500500</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -178,6 +140,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue" />
+    <option name="LAST_COMMIT_MESSAGE" value="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
