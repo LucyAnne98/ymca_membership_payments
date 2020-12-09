@@ -1,80 +1,385 @@
 FORMAT: 1A
 HOST: https://polls.apiblueprint.org/
 
-# ymca-memberships
+# YMCA Memberships
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+This is an API for YMCA membership application 
 
-## Questions Collection [/questions]
+## Memberships [/check{?name,surname,email,ymca}]
 
-### List All Questions [GET]
+### Get a membership details [GET]
+
++ Parameters
+    + name (string, required) ... Name to look for 
+    + surname (string, required) ... Surname of the member 
+    + email (string, required)  ... Email of the member
+    + ymca (string, optional, `0`) ... YMCA - if not, show all valid memberships in the database
+    
 
 + Response 200 (application/json)
 
-        [
+    + Attributes
+        + hits (number, required) - Total hits to the search results
+        + name (string, required) - who are we talking about
+        + memberships (array, required) - all memberships of the person
+            + (object)
+                + ymca (string, required) - name of the YMCA
+                + type (string, required) - type of membership
+                + status (string, required) - status - valid or invalid 
+                + valid-until (string, required) - Date in format "DD. MM. YYYY"
+    + Body
+    
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
+                "hits" : 1,
+                "name" : "Lucie Procházková",
+                "memberships": [
                     {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
+                        "ymca" : "YMCA DAP",
+                        "type" : "student",
+                        "status" : "valid",
+                        "valid-until" : "08. 12. 2020"
+                    }
+                ]
+            }    
+        
+## Members [/members/{id}]
+
++ Parameters
+    + id (number, required)
+    
+
+### List of all members of YMCA [GET]
+
+
++ Response 200 (application/json)
+
+ You should always get this response
+
+     + Attributes
+        + hits (number, required) - Total hits to the search results
+        + ymca (number, required) - ID of the YMCA  
+        + members (array, required) - all valid members of the YMCA
+            + (object)
+                + id (number, required) - id of the person
+                + email (string, required) - email of the YMCA
+                + name (string, required) - name of the person
+                + type (string, required) - type of membership
+                + validity (string, required) - Date in format "DD. MM. YYYY"
+    + Body
+    
+            {
+                "hits" : 2,
+                "ymca" : 0,
+                "members" : [
+                    {
+                        "id" : 0,
+                        "email" : "lucieaprochazkova@gmail.com",
+                        "name" : "Lucie Procházková",
+                        "type": "student",
+                        "validity": "01. 01. 2021"
+                    },
+                    {
+                       "id" : 1,
+                       "email" : "info@ymcadap.cz",
+                       "name" : "Ondřej Strádal",
+                       "type" : "normal",
+                       "validity": "01. 01. 2021"
                     }
                 ]
             }
-        ]
 
-### Create a New Question [POST]
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+## Reminders [/remind/{ymca_id}/{id}]
+
++ Parameters
+    + ymca_id (number, required) -  
+    + id (number, required) - 
+    
+   
+### Send a reminder [POST]
+
++ Response 200
+
+## Payments [/payments]
+
+### New payment [POST] 
+
+This endpoint allows you to register new payment
 
 + Request (application/json)
 
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
+    + Attributes
+        + id: 0 (number, required) - YMCA ID
+        + name: Lucie (string, required) - name of the member
+        + surname: Procházková (string, required) - surname of the member
+        + email: for@example.com (string, required) - email of the member
+        + value: 250 (number, required) - value of payment
+        + type: student (string, required) - type of membership
+        + date: 08. 12. 2020 (string, required) - date of payment 
+    
+   + Body 
+   
+            {
+                "id" : 0,
+                "name" : "Lucie",
+                "surname" : "Procházková",
+                "email" : "sekretar@tensing.cz",
+                "value" :  250,
+                "type" : "student",
+                "date" : "08. 12. 2020"
+            }
 
 + Response 201 (application/json)
+    
+    This response is returned when payment was succesful
+    
+    + Attributes
+        + name (string, required) - Full name of a person
+        + ymca (string, required) - Display name of the YMCA,
+        + type (string, required) - current membership type
+        + validity (string, required) - date of membership validity expiration
+    
+    + Body
+    
+            {
+                "name" : "Lucie Procházková",
+                "ymca" : "YMCA DAP",
+                "type" : "student",
+                "validity" : "08. 12. 2021"
+            }
 
-    + Headers
+## User Authentication [/users/identity]
 
-            Location: /questions/2
+### Authenticate user [POST]
+
+Authenticate user using the username and password. Server should return either 200 response for success or 400 response with description what failed
+
++ Request (application/json)
+
+    + Attributes
+        + username: lorem (string, required) - Username of the user we want to authenticate
+        + password: ipsum (string, required) - Password for the user
+        + remember: true (boolean, optional) - Tells the server to remember identity longer than usual.
+
++ Response 200
+
+    Success response from the server. Happens where username and password match. Server will always return status success in combination with HTTP code 200.
+
+    + Attributes
+        + id: 123 (number, required) - ID of the user
+        + username: LoogleCZ (string, required) - Username of the user
+        + name: Martin (string, required) - First name of the user
+        + surname: Fabík (string, required) - Surname of the user
+        + email: mar.fabik@gmail.com (string, required) - Contact email of the user
+        + ymcaid: 0 (number, required) - ID of ymca
+    + Body
+
+            {
+                "id": 123,
+                "username": "fabikma1",
+                "name": "Martin",
+                "surname": "Fabík",
+                "email": "mar.fabik@gmail.com",
+                "ymcaid" : 0,
+            }
+
++ Response 400
+
+    When username or password does not match, sever will return HTTP response with code 400 and `reason_code` set to `ERR_INVALID_LOGIN`
 
     + Body
 
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
+                "status": "failed",
+                "reason": "Given username and password does not match.",
+                "reason_code": [
+                    "ERR_INVALID_LOGIN"
                 ]
             }
+
+### Logout user [DELETE]
+
+Delete identity created by `POST` request to the resource. This will cause user logout. This request should always success.
+
++ Response 200
+
+    Response will be always success.
+
+    + Body
+
+            {
+                "status": "success"
+            }
+
+
+## User password - currently logged-in [/me/password]
+
+### User password change [POST]
+
+Update the password of currently logged in user. User must provide old and new password for the update. In case of success, you should get `201 No Content`
+
++ Request (application/json)
+
+    + Attributes
+        + password_old: ***** (string, required) - Old password (of updated user). Does not apply when you update user as administrator
+        + password_new: ***** (string, required) - New password (of updated user).
+        + password_repeat: ***** (string, optional) - New password (of updated user). for verification Does not apply when you update user as administrator
+
+    + Body
+
+            {
+                "password_old": "*****",
+                "password_new": "*****",
+                "password_repeat": "*****"
+            }
+
++ Response 204
+
++ Response 400
+
+    This response is returned when update of password failed. In the `reason_code` is allowed following values:
+
+    - `ERR_PASSWORD_DONT_MATCH`
+    - `ERR_PASSWORDS_NOT_EQUAL`
+
+    + Body
+
+            {
+                "status": "failed",
+                "reason": "Given passwords does not match.",
+                "reason_code": [
+                    "ERR_PASSWORD_DONT_MATCH"
+                ]
+            }
+
++ Response 401 (application/json)
+
+    Response used when you are not logged in. `reason_code` will be `ERR_NOT_LOGGED_IN`
+    
+    + Body
+
+            {
+                "status": "failed",
+                "reason": "You are not logged in.",
+                "reason_code": [
+                    "ERR_NOT_LOGGED_IN"
+                ]
+            }
+            
+
+### User password reset [DELETE]
+
+If you need to reset user's password, you should use this endpoint. Calling this resource will cause generation of sending email to the user with request to create new password.
+
++ Response 204
+
++ Response 401 (application/json)
+
+    Response used when you are not logged in. `reason_code` will be `ERR_NOT_LOGGED_IN`
+    
+    + Body
+
+            {
+                "status": "failed",
+                "reason": "You are not logged in.",
+                "reason_code": [
+                    "ERR_NOT_LOGGED_IN"
+                ]
+            }
+
+## Users manipulation [/users/{?limit,page,search,order,direction}]
+
+### Create new user [PUT]
+
+Create new user based on data provided.
+
++ Request (application/json)
+
+    + Attributes
+        + username: LoogleCZ (string, required) - Username of the user
+        + ymca-id: 0 (number, required) - Name of the YMCA
+        + email: mar.fabik@gmail.com (string, required) - Contact email of the user
+        + password: admin123; (string, required) - Password for the new user
+        + password_repeat: admin123; (string, required) - Password verification. Must be same as password
+
+    + Body
+
+            {
+                "username": "LoogleCZ",
+                "name": "YMCA DAP",
+                "email": "mar.fabik@gmail.com",
+                "password": "admin123;",
+                "password_repeat": "admin123;",
+            }
+
++ Response 201 (application/json)
+
+    Response returned when new user created successfuly.
+
+    + Attributes
+        + id: 1 (number, required) - ID of newly created user
+        + username: LoogleCZ (string, required) - Username of the user
+        + name: Martin (string, required) - First name of the user
+        + surname: Fabík (string, required) - Surname of the user
+        + email: mar.fabik@gmail.com (string, required) - Contact email of the user
+        + ymca: 0 (number, required) - ID of YMCA      
+    + Body
+
+            {
+                "id": 1,
+                "username": "fabikma1",
+                "name": "Martin",
+                "surname": "Fabík",
+                "email": "mar.fabik@gmail.com",
+                }
+            }
+
++ Response 400
+
+    This response is returned when creation of user on input data validation. In the `reason_code` is allowed following values:
+
+    - `ERR_PASSWORD_DONT_MATCH`
+    - `ERR_NO_GDPR`
+    - `ERR_NO_TOU`
+    - `ERR_INCORRECT_EMAIL`
+
+    + Body
+
+            {
+                "status": "failed",
+                "reason": "Given passwords does not match.",
+                "reason_code": [
+                    "ERR_PASSWORD_DONT_MATCH",
+                    "ERR_NO_GDPR"
+                ]
+            }
+
++ Response 409
+
+    This response is returned when creation of user on conflict with existing user. In the `reason_code` is allowed following values:
+
+    - `ERR_USERNAME_ALREADY_TAKEN`
+    - `ERR_EMAIL_ALREADY_TAKEN`
+
+    + Body
+
+            {
+                "status": "failed",
+                "reason": "Given username already taken.",
+                "reason_code": [
+                    "ERR_USERNAME_ALREADY_TAKEN"
+                ]
+            }
+
+
+## User password - user by ID [/users/{id}/password]
+
++ Parameters
+    + id (required, number, `1`) ... ID of user we want to update password.
+
+
+### User password reset [DELETE]
+
+If you need to reset user's password, you should use this endpoint. Calling this resource will cause generation of sending email to the user with request to create new password.
+
++ Response 204
