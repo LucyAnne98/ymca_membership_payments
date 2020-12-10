@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import store from "../store/index.js"
 
 Vue.use(VueRouter);
 
@@ -13,26 +14,40 @@ const routes = [
   {
     path: "/about",
     name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue")
   },
   {
+    path: "/login",
+    name: "Login",
+    meta: {
+      authenticatedPath: '/admin'
+    }
+  },
+  {
     path: "/admin",
     name: "Admin",
-    component: () => import("../views/Admin.vue")
+    component: () => import("../views/Admin.vue"),
+    meta: {
+      authRequired: true
+    }
+
   },
   {
     path: "/check",
     name: "Membership Check",
-    component: () => import("../views/MembershipCheck.vue")
+    component: () => import("../views/MembershipCheck.vue"),
+    meta: {
+      authRequired: false
+    }
   },
   {
     path: "/memberships",
     name: "Memberships",
-    component: () => import("../views/Memberships.vue")
+    component: () => import("../views/Memberships.vue"),
+    meta: {
+      authRequired: true
+    }
   },
 
 ];
@@ -40,7 +55,42 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
-  routes
+  routes,
+
 });
+
+
+router.resolveAuthenticated = function (to, from, next) {
+  if (to.matched.some(record => record.meta.authRequired)) {
+    if (!store.state.isAuthenticated) {
+      next({
+        path: '/sign'
+      });
+    } else {
+      next();
+    }
+  } else {
+    if (store.state.isAuthenticated && to.meta.authenticatedPath !== null && to.meta.authenticatedPath !== undefined) {
+      next({
+        path: to.meta.authenticatedPath
+      });
+    } else {
+      next();
+    }
+  }
+};
+
+router.beforeEach((to, from, next) => {
+  if (store.state.isAuthenticated === null || store.state.isAuthenticated === undefined) {
+    store.dispatch('getUser').then(() => {
+      router.resolveAuthenticated(to, from, next);
+    }).catch(() => {
+      router.resolveAuthenticated(to, from, next);
+    });
+  } else {
+    router.resolveAuthenticated(to, from, next);
+  }
+});
+
 
 export default router;

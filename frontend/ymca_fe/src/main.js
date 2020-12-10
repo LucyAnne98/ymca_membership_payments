@@ -13,7 +13,7 @@ const base = axios.create({
 
 
 //Use the window object to make it available globally.
-window.axios = base;
+window.axiosStatic = base;
 Vue.config.productionTip = false;
 
 

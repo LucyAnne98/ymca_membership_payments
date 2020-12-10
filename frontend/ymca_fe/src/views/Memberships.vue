@@ -16,29 +16,34 @@
     <b-nav>
       <table id="membersTable">
         <thead>
-        <tr>
+        <tr >
           <th v-bind:key="col"
+              class="center-content"
               v-for="col in columns_display">
             {{ col }}
           </th>
-          <th>
-
+          <th class="center-content" >
+            {{ sendReminder }}
           </th>
         </tr>
         </thead>
         <tbody>
-        <tr v-bind:key="member.id"
-            v-for="member in members"
+        <tr
+          v-bind:key="member.id"
+          v-for="member in members"
         >
-          <td v-bind:key="member[col]"
-              v-for="col in columns">
+          <td
+            v-bind:key="member[col]"
+            v-for="col in columns"
+            class="center-content"
+          >
             {{ member[col] }}
           </td>
-          <td>
+          <td class="center-content">
             <b-button
-                @click="remind(member.id)"
-                variant="ymca-fe"
-                class="rounded-pill"
+              @click="remind(member.id)"
+              variant="ymca-fe"
+              class="rounded-pill"
             >
               {{ sendReminder }}
             </b-button>
@@ -48,15 +53,30 @@
       </table>
     </b-nav>
 
-  </b-container>
 
+    <!--modals-->
+    <b-modal
+      id="add-payment"
+      ref="add-payment"
+      hide-footer
+      hide-header
+    >
+      <new-payment
+        @close="closeModal"
+        @closeRefresh="closeRefresh"
+      />
+    </b-modal>
+
+
+  </b-container>
 </template>
 
 <script>
-import axios from "axios";
 
+import NewPayment from "./NewPayment";
 export default {
   name: "Memberships",
+  components: {NewPayment},
   data: function () {
     return {
       members: [
@@ -64,20 +84,20 @@ export default {
           id: 0,
           email: "lucieaprochazkova@gmail.com",
           name: "Lucie Procházková",
-          membershipType: "student",
-          validity: "1.1.2021"
+          type: "student",
+          validity: "01. 01. 2021"
         },
         {
           id: 1,
           email: "info@ymcadap.cz",
           name: "Ondřej Strádal",
-          membershipType: "pracující",
-          validity: "1.1.2021"
+          type: "normal",
+          validity: "01. 01. 2021"
         }
       ],
       columns: [
         "name",
-        "membershipType",
+        "type",
         "validity"
       ],
       columns_display: [
@@ -92,7 +112,7 @@ export default {
   },
   mounted() {
     // eslint-disable-next-line no-undef
-    axios
+    axiosStatic
         .get(this.$store.state.apiUrl + "/members/" + this.$store.state.user.ymcaID)
         .then(response => {
           this.members = response.data.members
@@ -106,11 +126,22 @@ export default {
   },
   methods: {
     remind: function (id) {
-      axios.post(`${this.$store.state.apiUrl}/remind/${id}`)
+      axiosStatic.post(`${this.$store.state.apiUrl}/remind/`+ this.$store.state.user.ymcaID + `/${id}`)
       .catch(e => {
         console.log(e)
       })
+    },
+    closeRefresh: function () {
+      this.$refs['add-payment'].hide();
+      this.$router.push('/memberships');
+      this.$router.go(0);
+    },
+    closeModal: function () {
+      this.$router.push('/memberships');
+      this.$refs['add-payment'].hide();
     }
+
+
   },
   computed: {
     membershipLabel() {

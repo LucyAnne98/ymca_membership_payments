@@ -2,20 +2,40 @@
   <b-form
       @submit.prevent="submitCheck">
     <h3>{{ membershipCheckHeadline }}</h3>
-    <b-form-group
-        id="check-name"
-        :label="doCheckNameLabel()"
-        label-for="check-name"
-    >
-      <b-form-input
-          id="login-username"
-          type="text"
-          required
-          v-model="checkName"
-          placeholder="Jan Novák"
-          class="rounded-pill"
-      />
-    </b-form-group>
+    <b-row>
+      <b-col>
+        <b-form-group
+            id="check-name"
+            :label="doCheckNameLabel()"
+            label-for="check-name"
+        >
+          <b-form-input
+              id="check-name"
+              type="text"
+              required
+              v-model="checkName"
+              placeholder="Jan"
+              class="rounded-pill"
+          />
+        </b-form-group>
+      </b-col>
+      <b-col>
+        <b-form-group
+            id="check-surname"
+            :label="doCheckSurnameLabel()"
+            label-for="check-name"
+        >
+          <b-form-input
+              id="check-surname"
+              type="text"
+              required
+              v-model="checkSurname"
+              placeholder="Novák"
+              class="rounded-pill"
+          />
+        </b-form-group>
+      </b-col>
+    </b-row>
     <b-form-group
         id="check-email"
         :label="doCheckEmailLabel()"
@@ -38,7 +58,6 @@
       <b-form-input
           id="check-ymca"
           type="ymca"
-          required
           v-model="checkYMCA"
           placeholder="YMCA DAP"
           class="rounded-pill"
@@ -58,7 +77,6 @@
 </template>
 
 <script>
-import axios from "axios"
 
 export default {
   name: "MembershipCheck",
@@ -66,6 +84,7 @@ export default {
     return {
       // data for sign
       checkName: "",
+      checkSurname: "",
       checkEmail: "",
       checkYMCA: "",
       loadResults: false,
@@ -88,20 +107,24 @@ export default {
   methods: {
 
     doCheckNameLabel() {
-      return this.$store.state.checkNameLabel;
+      return this.$store.state.nameLabel;
+    },
+    doCheckSurnameLabel() {
+      return this.$store.state.surnameLabel;
     },
     doCheckEmailLabel() {
-      return this.$store.state.checkEmailLabel;
+      return this.$store.state.emailLabel;
     },
     doCheckYMCALabel() {
-      return this.$store.state.checkYMCALabel;
+      return this.$store.state.YMCALabel;
     },
     submitCheck() {
-      axios.get(this.$store.state.apiUrl + `/check?name=` + this.checkName + `&email=` + this.checkEmail + `&ymca=` + this.checkYMCA)
-        .then(response => {
-          this.loadResults = true;
-          this.results = response.data.results;
-        })
+      axiosStatic.get(this.$store.state.apiUrl
+          + `/check?name=` + this.checkName+ `&surname=` + this.checkSurname + `&email=` + this.checkEmail + `&ymca=` + this.checkYMCA)
+          .then(response => {
+            this.loadResults = true;
+            this.results = response.data.results;
+          })
           .catch(() => {
             this.resultFail = true;
             this.loadResults = false;

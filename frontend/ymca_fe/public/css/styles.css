@@ -21,6 +21,8 @@ body {
     margin-right: 5%;
     margin-top: 3em;
     text-align: center;
+    font-family: 'Comfortaa', sans-serif;
+
 }
 
 
@@ -29,11 +31,12 @@ body {
     justify-content: center;
     width: 100%;
     margin: 5em;
+    font-family: 'Comfortaa', sans-serif;
 }
 
 .top-header {
     vertical-align: center;
-
+    font-family: 'Comfortaa', sans-serif;
     font-size: 2rem;
 }
 
@@ -156,4 +159,8 @@ table tbody tr:nth-child(2n) td {
 
     background: var(--color2);
 
+}
+
+.center-content {
+    text-align: center;
 }
