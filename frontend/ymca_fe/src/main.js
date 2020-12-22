@@ -3,17 +3,17 @@ import App from "./App.vue";
 import store from "./store";
 import router from "./router";
 import BootstrapVue from "bootstrap-vue";
-import axios from "axios";
+import axiosApi  from "axios";
 import VueAxios from "vue-axios";
 
 
-const base = axios.create({
+const axios = axiosApi.create({
     baseURL: store.state.apiUrl,
+
 });
 
-
 //Use the window object to make it available globally.
-window.axiosStatic = base;
+window.axios = axios;
 Vue.config.productionTip = false;
 
 

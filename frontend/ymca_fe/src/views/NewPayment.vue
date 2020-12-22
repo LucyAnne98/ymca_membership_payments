@@ -97,6 +97,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "NewPayment",
   data() {
@@ -131,7 +133,7 @@ export default {
     },
     registerPayment() {
       let self = this;
-      axiosStatic.post(this.$store.state.apiUrl + `/payments`, {
+      axios.post(this.$store.state.apiUrl + `/payments`, {
         id: this.$store.state.user.ymcaID,
         name: self.payName,
         surname: self.paySurname,

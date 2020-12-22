@@ -1,6 +1,7 @@
 <template>
   <b-form
-      @submit.prevent="submitCheck">
+    @submit.prevent="submitCheck"
+  >
     <h3>{{ membershipCheckHeadline }}</h3>
     <b-row>
       <b-col>
@@ -77,7 +78,7 @@
 </template>
 
 <script>
-
+import axios from "axios";
 export default {
   name: "MembershipCheck",
   data() {
@@ -119,7 +120,7 @@ export default {
       return this.$store.state.YMCALabel;
     },
     submitCheck() {
-      axiosStatic.get(this.$store.state.apiUrl
+      axios.get(this.$store.state.apiUrl
           + `/check?name=` + this.checkName+ `&surname=` + this.checkSurname + `&email=` + this.checkEmail + `&ymca=` + this.checkYMCA)
           .then(response => {
             this.loadResults = true;

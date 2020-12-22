@@ -72,8 +72,9 @@
 </template>
 
 <script>
-
+import axios from "axios";
 import NewPayment from "./NewPayment";
+
 export default {
   name: "Memberships",
   components: {NewPayment},
@@ -112,7 +113,7 @@ export default {
   },
   mounted() {
     // eslint-disable-next-line no-undef
-    axiosStatic
+    axios
         .get(this.$store.state.apiUrl + "/members/" + this.$store.state.user.ymcaID)
         .then(response => {
           this.members = response.data.members
@@ -126,7 +127,7 @@ export default {
   },
   methods: {
     remind: function (id) {
-      axiosStatic.post(`${this.$store.state.apiUrl}/remind/`+ this.$store.state.user.ymcaID + `/${id}`)
+      axios.post(`${this.$store.state.apiUrl}/remind/`+ this.$store.state.user.ymcaID + `/${id}`)
       .catch(e => {
         console.log(e)
       })

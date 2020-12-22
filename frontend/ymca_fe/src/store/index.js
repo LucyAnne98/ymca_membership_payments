@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -8,12 +9,12 @@ export default new Vuex.Store({
   state: {
     //General
     apiUrl: "TODO", //TODO
-    isAuthenticated: false,
+    isAuthenticated: true,
+    isSuperAdmin: true,
     user: {
       ymcaID : -1,
     },
     types: ["student", "pracující", "rodina", "čestné"],
-
     //Login
 
     //MembershipCheck
@@ -45,7 +46,7 @@ export default new Vuex.Store({
   actions: {
     async getUser({state, commit}) {
       try {
-        let response = await axiosStatic.get(`${state.apiUrl}/me`, {withCredentials: true});
+        let response = await axios.get(`${state.apiUrl}/me`, {withCredentials: true});
 
         commit('setUser', response.data);
         commit('setIsAuthenticated', true);
@@ -60,7 +61,7 @@ export default new Vuex.Store({
         "password": password,
         "remember": remember
       };
-      axiosStatic.post(`${state.apiUrl}/users/identity`, data, {withCredentials: true}).then(() => {
+      axios.post(`${state.apiUrl}/users/identity`, data, {withCredentials: true}).then(() => {
 
         this.dispatch('getUser').then(() => {
           commit('setAuthenticationError', false);
@@ -71,7 +72,7 @@ export default new Vuex.Store({
       });
     },
     userRegister({state, commit}, data) {
-      axiosStatic.put(`${state.apiUrl}/users`, data, {withCredentials: true}).then(() => {
+      axios.put(`${state.apiUrl}/users`, data, {withCredentials: true}).then(() => {
         commit("setRegisterError", false);
         commit("setRegisterSuccess", true);
       }).catch((error) => {
@@ -80,7 +81,7 @@ export default new Vuex.Store({
     },
     logout({state, commit}) {
 
-      axiosStatic.delete(`${state.apiUrl}/users/identity`, {withCredentials: true});
+      axios.delete(`${state.apiUrl}/users/identity`, {withCredentials: true});
       commit('setUser', []);
       commit('setIsAuthenticated', false);
       commit('setAuthenticationError', false);

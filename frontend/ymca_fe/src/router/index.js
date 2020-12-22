@@ -49,6 +49,14 @@ const routes = [
       authRequired: true
     }
   },
+  {
+    path: "/superadmin",
+    name: "SuperAdmin",
+    component: () => import("../views/SuperAdmin.vue"),
+    meta: {
+      authRequired: false
+    }
+  },
 
 ];
 
@@ -69,7 +77,16 @@ router.resolveAuthenticated = function (to, from, next) {
     } else {
       next();
     }
-  } else {
+  } else if(to.matched.some(record => record.meta.superAdmin)) {
+    if (!store.state.isSuperAdmin) {
+      next({
+        path: '/sign'
+      });
+    } else {
+      next();
+    }
+  }
+  else {
     if (store.state.isAuthenticated && to.meta.authenticatedPath !== null && to.meta.authenticatedPath !== undefined) {
       next({
         path: to.meta.authenticatedPath
