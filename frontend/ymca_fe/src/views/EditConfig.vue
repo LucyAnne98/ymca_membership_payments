@@ -74,7 +74,7 @@ export default {
       axios.post(this.$store.state.apiUrl + `/config`, {
         ymca: self.$store.state.user.ymcaID, type: self.config.type, price: self.price, validity: self.validity
       })
-      //this.$emit('closeRefresh');
+      this.$emit('closeRefresh');
 
     }
   }
