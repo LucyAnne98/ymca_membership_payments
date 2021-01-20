@@ -29,21 +29,21 @@
         </thead>
         <tbody>
         <tr
-          v-bind:key="member.id"
-          v-for="member in members"
+            v-bind:key="member.id"
+            v-for="member in members"
         >
           <td
-            v-bind:key="member[col]"
-            v-for="col in columns"
-            class="center-content"
+              v-bind:key="member[col]"
+              v-for="col in columns"
+              class="center-content"
           >
             {{ member[col] }}
           </td>
           <td class="center-content">
             <b-button
-              @click="remind(member.id)"
-              variant="ymca-fe"
-              class="rounded-pill"
+                @click="remind(member.id)"
+                variant="ymca-fe"
+                class="rounded-pill"
             >
               {{ sendReminder }}
             </b-button>
