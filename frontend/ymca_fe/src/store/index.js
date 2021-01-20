@@ -9,10 +9,10 @@ export default new Vuex.Store({
   state: {
     //General
     apiUrl: "TODO", //TODO
-    isAuthenticated: false,
+    isAuthenticated: true,
     isSuperAdmin: false,
     user: {
-      ymcaID : -1,
+      ymcaID : 0,
     },
     types: ["student", "pracující", "rodina", "čestné"],
     //Login
@@ -41,7 +41,10 @@ export default new Vuex.Store({
     typeLabel: "Zadejte typ členství",
     registerLabel: "Zapsat platbu",
     //Login
-    loginErrorText: "Něco se nepovedlo. V případě opakovaných potíží kontaktujte správce systému."
+    loginErrorText: "Něco se nepovedlo. V případě opakovaných potíží kontaktujte správce systému.",
+    //Configs
+    price:"Cena",
+    validityPeriod: "Doba platnosti v měsících",
 
   },
   mutations: {},

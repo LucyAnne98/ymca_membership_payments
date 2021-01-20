@@ -19,10 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="Login created, new user works as expected">
+    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="Membership check now is select from YMCAs">
+      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/EditConfig.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/YMCASettings.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +114,7 @@
       <workItem from="1607205902549" duration="30325000" />
       <workItem from="1607643881641" duration="605000" />
       <workItem from="1608668852084" duration="5527000" />
-      <workItem from="1611055260451" duration="12024000" />
+      <workItem from="1611055260451" duration="17722000" />
     </task>
     <task id="LOCAL-00001" summary="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue">
       <created>1607208500500</created>
@@ -149,7 +151,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611154462229</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Membership check now is select from YMCAs">
+      <created>1611155947551</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1611155947551</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +183,8 @@
     <MESSAGE value="Changed router - added authentication&#10;Added New payment &#10;API changes according to apiary documentation" />
     <MESSAGE value="Lots of bugs added" />
     <MESSAGE value="Login created, new user works as expected" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login created, new user works as expected" />
+    <MESSAGE value="Membership check now is select from YMCAs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Membership check now is select from YMCAs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

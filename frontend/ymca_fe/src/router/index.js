@@ -51,6 +51,14 @@ const routes = [
     }
   },
   {
+    path: "/ymca-settings",
+    name: "YMCA Settings",
+    component: () => import("../views/YMCASettings.vue"),
+    meta: {
+      authRequired: true
+    }
+  },
+  {
     path: "/superadmin",
     name: "SuperAdmin",
     component: () => import("../views/SuperAdmin.vue"),
