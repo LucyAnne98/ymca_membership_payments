@@ -9,8 +9,8 @@ export default new Vuex.Store({
   state: {
     //General
     apiUrl: "TODO", //TODO
-    isAuthenticated: true,
-    isSuperAdmin: true,
+    isAuthenticated: false,
+    isSuperAdmin: false,
     user: {
       ymcaID : -1,
     },
@@ -40,6 +40,8 @@ export default new Vuex.Store({
     dateLabel: "Zadejte datum",
     typeLabel: "Zadejte typ členství",
     registerLabel: "Zapsat platbu",
+    //Login
+    loginErrorText: "Něco se nepovedlo. V případě opakovaných potíží kontaktujte správce systému."
 
   },
   mutations: {},

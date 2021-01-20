@@ -1,10 +1,10 @@
 <template>
-  <b-container tag="header" fluid>
+  <b-container tag="header" fluid="true">
     <b-row class="top-header top-bar">
       <b-col class="text-right">
         <b-nav-item
           v-if="!isAuthenticated"
-          to="/sign#sign-up-anchor"
+          to="/login"
           class="item"
         >
           Login

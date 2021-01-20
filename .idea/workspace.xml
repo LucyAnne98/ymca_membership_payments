@@ -19,20 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="Changed router - added authentication&#10;Added New payment &#10;API changes according to apiary documentation">
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/NewUser.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/SuperAdmin.vue" afterDir="false" />
+    <list default="true" id="a58d74c8-b793-426d-95bc-657d251898be" name="Default Changelist" comment="Lots of bugs added">
+      <change afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/public/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/public/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/components/Navigation.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/components/Navigation.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/MembershipCheck.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/Memberships.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/NewPayment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/NewPayment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/ymca_fe/src/views/NewUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/ymca_fe/src/views/NewUser.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +114,8 @@
       <workItem from="1606834703064" duration="22232000" />
       <workItem from="1607205902549" duration="30325000" />
       <workItem from="1607643881641" duration="605000" />
-      <workItem from="1608668852084" duration="5421000" />
+      <workItem from="1608668852084" duration="5527000" />
+      <workItem from="1611055260451" duration="10798000" />
     </task>
     <task id="LOCAL-00001" summary="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue">
       <created>1607208500500</created>
@@ -144,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607560137006</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Lots of bugs added">
+      <created>1608678223886</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608678223886</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +168,8 @@
     <MESSAGE value="I shoud have commited while ago - main changes&#10;-added CSS&#10;-Added MembershipCheck.vue&#10;-Added Navigation.vue" />
     <MESSAGE value="Memberships.vue created and first implementation done&#10;Some adjustments in Memberships.vue" />
     <MESSAGE value="Changed router - added authentication&#10;Added New payment &#10;API changes according to apiary documentation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed router - added authentication&#10;Added New payment &#10;API changes according to apiary documentation" />
+    <MESSAGE value="Lots of bugs added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lots of bugs added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -20,6 +20,7 @@ const routes = [
   {
     path: "/login",
     name: "Login",
+    component: () => import("../views/Login.vue"),
     meta: {
       authenticatedPath: '/admin'
     }
@@ -54,9 +55,11 @@ const routes = [
     name: "SuperAdmin",
     component: () => import("../views/SuperAdmin.vue"),
     meta: {
-      authRequired: false
+      authRequired: true,
+      superAdmin: true
     }
   },
+
 
 ];
 

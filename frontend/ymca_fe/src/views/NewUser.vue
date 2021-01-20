@@ -1,4 +1,4 @@
-no<template>
+<template>
   <b-form
       @submit.prevent="createUser"
   >
@@ -79,7 +79,6 @@ no<template>
 </template>
 
 <script>
-import bcrypt from 'bcrypt'
 import axios from "axios";
 
 export default {
@@ -105,11 +104,11 @@ export default {
   },
   created() {
     axios.get(this.$store.state.apiUrl + `/ymcas`)
-        .catch(e => console.log(e))
         .then(response => {
           this.YMCAs = response.data.ymcas;
 
         })
+        .catch(e => console.log(e))
   },
   methods: {
     mapYMCAs() {
@@ -118,27 +117,14 @@ export default {
     createUser() {
       this.isPasswordMismatch = this.password !== this.passwordCheck;
       if (!this.isPasswordMismatch) {
-        bcrypt.hash(this.password, 10, (err, hash) => {
-          if (err) {
-            console.error(err)
-          } else {
             axios.put(this.$store.state.apiUrl + `/users/`,
                 {
                   ymcaId: this.ymca,
                   email: this.email,
-                  password: hash,
+                  password: this.password,
                 })
-          }
-
-        })
       }
-
-
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
